@@ -6,6 +6,7 @@
 
 package practico4;
 
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -101,11 +102,16 @@ public class Convertidor extends javax.swing.JFrame {
         
         try {
             
+            DecimalFormat formatoDecimal = new DecimalFormat("0.00");
+            
             double celsius = Double.parseDouble(jtTemperatura.getText());
         
             double fahrenheit = celsius * 9/5 + 32;
+            
 
-            JOptionPane.showMessageDialog(this, "La temperatura en fahrenheit es de:\n" + fahrenheit + "F°");
+            JOptionPane.showMessageDialog(this, "La temperatura en fahrenheit es de:\n" + formatoDecimal.format(fahrenheit) + "F°");
+            
+            jtTemperatura.setText("");
             
         } catch (NumberFormatException nf) {
             
